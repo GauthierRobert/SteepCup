@@ -1,0 +1,5 @@
+insert into worldcup.role (id, name) values ("1","ADMIN");
+insert into worldcup.role (id, name) values ("2","ROLE_USER");
+insert into worldcup.player (ID,nbrGames,nbrGoodScore,nbrGoodDiff,nbrGoodResult,points,username) values (9999,0,0,0,0,0,"admin");
+insert into worldcup.user (Player_id, password, username) values ("9999","$2a$10$xtqofy7xFBH9AAzVm0dEbuDERVG.IUeBtjcy.NJ3mVAobkKUzYquW","admin");
+insert into worldcup.user_role (user_id, role_id) values ("9999","1");

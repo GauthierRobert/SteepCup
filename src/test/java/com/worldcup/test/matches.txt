@@ -1,0 +1,80 @@
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("1","Saudi Arabia","2018-06-14","17:00","Russia",null,null,"01","A");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("2","Uruguay","2018-06-15","14:00","Egypt",null,null,"02","A");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("3","Egypt","2018-06-19","20:00","Russia",null,null,"03","A");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("4","Saudi Arabia","2018-06-20","17:00","Uruguay",null,null,"04","A");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("5","Russia","2018-06-25","18:00","Uruguay",null,null,"05","A");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("6","Egypt","2018-06-25","17:00","Saudi Arabia",null,null,"06","A");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("7","Spain","2018-06-15","20:00","Portugal",null,null,"01","B");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("8","Iran","2018-06-15","17:00","Morocco",null,null,"02","B");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("9","Morocco","2018-06-20","12:00","Portugal",null,null,"03","B");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("10","Spain","2018-06-20","20:00","Iran",null,null,"04","B");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("11","Morocco","2018-06-25","17:00","Spain",null,null,"05","B");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("12","Portugal","2018-06-25","17:00","Iran",null,null,"06","B");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("13","Australia","2018-06-16","12:00","France",null,null,"01","C");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("14","Denmark","2018-06-16","18:00","Peru",null,null,"02","C");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("15","Peru","2018-06-21","13:00","France",null,null,"03","C");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("16","Australia","2018-06-21","16:00","Denmark",null,null,"04","C");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("17","France","2018-06-26","16:00","Denmark",null,null,"05","C");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("18","Peru","2018-06-26","16:00","Australia",null,null,"06","C");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("19","Iceland","2018-06-16","15:00","Argentina",null,null,"01","D");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("20","Nigeria","2018-06-16","21:00","Croatia",null,null,"02","D");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("21","Croatia","2018-06-21","20:00","Argentina",null,null,"03","D");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("22","Iceland","2018-06-22","17:00","Nigeria",null,null,"02","D");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("23","Argentina","2018-06-26","20:00","Nigeria",null,null,"01","D");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("24","Croatia","2018-06-26","20:00","Iceland",null,null,"02","D");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("25","Serbia","2018-06-17","14:00","Costa Rica",null,null,"01","E");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("26","Switzerland","2018-06-17","20:00","Brazil",null,null,"02","E");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("27","Costa Rica","2018-06-22","14:00","Brazil",null,null,"03","E");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("28","Switzerland","2018-06-22","20:00","Serbia",null,null,"04","E");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("29","Brazil","2018-06-27","20:00","Serbia",null,null,"05","E");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("30","Costa Rica","2018-06-27","20:00","Switzerland",null,null,"06","E");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("31","Mexico","2018-06-17","17:00","Germany",null,null,"01","F");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("32","South Korea","2018-06-18","12:00","Sweden",null,null,"02","F");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("33","Sweden","2018-06-23","17:00","Germany",null,null,"03","F");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("34","Mexico","2018-06-23","20:00"," South Korea",null,null,"04","F");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("35","Germany","2018-06-27","16:00","South Korea",null,null,"05","F");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("36","Sweden","2018-06-27","16:00","Mexico",null,null,"06","F");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("37","Panama","2018-06-18","17:00","Belgium",null,null,"01","G");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("38","England","2018-06-18","20:00","Tunisia",null,null,"02","G");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("39","Tunisia","2018-06-23","14:00","Belgium",null,null,"03","G");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("40","Panama","2018-06-24","14:00","England",null,null,"04","G");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("41","Belgium","2018-06-28","20:00","England",null,null,"05","G");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("42","Tunisia","2018-06-28","20:00","Panama",null,null,"06","G");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("43","Senegal","2018-06-19","14:00","Poland",null,null,"01","H");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("44","Japan","2018-06-19","17:00","Colombia",null,null,"02","H");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("45","Senegal","2018-06-24","17:00","Japan",null,null,"03","H");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("46","Colombia","2018-06-24","20:00","Senegal",null,null,"04","H");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("47","Poland","2018-06-28","16:00","Japan",null,null,"05","H");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("48","Colombia","2018-06-28","16:00","Senegal",null,null,"06","H");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("49","2D","2018-06-30","16:00","1C",null,null,"01","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("50","2B","2018-06-30","20:00","1A",null,null,"02","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("51","2A","2018-07-01","16:00","1B",null,null,"03","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("52","2C","2018-07-01","20:00","1D",null,null,"04","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("53","2F","2018-07-02","16:00","1E",null,null,"05","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("54","2H","2018-07-02","20:00","1G",null,null,"06","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("55","2E","2018-07-03","16:00","1F",null,null,"07","08");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("56","2G","2018-07-03","20:00","1H",null,null,"08","08");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("57","W50","2018-07-06","16:00","W49",null,null,"01","04");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("58","W52","2018-07-06","20:00","W51",null,null,"02","04");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("59","W54","2018-07-07","16:00","W53",null,null,"03","04");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("60","W56","2018-07-07","20:00","W55",null,null,"04","04");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("61","W58","2018-07-10","20:00","W57",null,null,"01","02");
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("62","W60","2018-07-11","20:00","W59",null,null,"02","02");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("63","L62","2018-07-14","16:00","L61",null,null,"02","01");
+
+insert into worldcup.worldcup (id, away, gameDate, gameTime, home, scoreAway, scoreHome,seq, type) values ("64","W62","2018-07-15","17:00","W61",null,null,"01","01");
+
+
+insert into worldcup.role (id, name) values ("1","ROLE_ADMIN");
+insert into worldcup.role (id, name) values ("2","ROLE_USER");
