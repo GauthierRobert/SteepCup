@@ -41,9 +41,9 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://172.30.47.222:3306/worldcup"/>
-		<property name="username" value="root"/>
-		<property name="password" value="Aldebaran63!"/>
+		<property name="url" value="jdbc:mysql://172.30.138.135:3306/worldcup"/>
+		<property name="username" value="user6ek"/>
+		<property name="password" value="mkdUsruM"/>
 	</bean>	
 	
 </beans>
