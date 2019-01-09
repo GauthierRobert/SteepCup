@@ -1,80 +1,165 @@
-package com.worldcup.controller;
+package com.lhc.webservices.restServices;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import com.lhc.business.service.BallotService;
+import com.lhc.business.service.CompetitionService;
+import com.lhc.business.service.MatchService;
+import com.lhc.business.service.VoteService;
+import com.lhc.business.service.security.UserService;
+import com.lhc.datamodel.entities.Ballot;
+import com.lhc.datamodel.entities.Competition;
+import com.lhc.datamodel.entities.Match;
+import com.lhc.datamodel.entities.Vote;
+import com.lhc.datamodel.entities.security.User;
+import com.lhc.dto.BallotDto;
+import com.lhc.dto.CompetitionDto;
+import com.lhc.dto.MatchDto;
+import com.lhc.dto.VoteDto;
+import com.lhc.mapper.MapperHandler;
+import com.lhc.mapper.ballot.BallotMapperHandler;
+import com.lhc.mapper.competition.CompetitionMapperHandler;
+import com.lhc.mapper.match.MatchMapperHandler;
+import com.lhc.mapper.vote.VoteMapperHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
-import com.worldcup.model.User;
-import com.worldcup.service.SecurityService;
-import com.worldcup.service.UserService;
-import com.worldcup.validator.UserValidator;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
-@Controller
-public class UserController {
-	
+@Produces(MediaType.APPLICATION_JSON)
+@RestController
+public class CompetitionEndPoint {
+
+    @Autowired
+    private BallotService ballotService;
+    @Autowired
+    private CompetitionService competitionService;
+    @Autowired
+    private MatchService matchService;
+    @Autowired
+    private VoteService voteService;
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private SecurityService securityService;
 
-    @Autowired
-    private UserValidator userValidator;
-    
-	private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    
-    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
+    //--------- POST
+    @RequestMapping(
+            value = "/ballot/save",
+            method = RequestMethod.POST)
+    public BallotDto postBallot(@RequestBody BallotDto ballotDto, @RequestParam String username){
 
-        return "signUp";
+        User currentUser = userService.findByUsername(username);
+
+        BallotMapperHandler ballotMapperHandler = new BallotMapperHandler();
+        Ballot ballot = ballotMapperHandler.mapToEntity(ballotDto, new Ballot());
+
+        ballotService.saveOrUpdate(ballot, currentUser, ballot.getMatch_ref());
+
+        return ballotDto;
     }
-    
-    @RequestMapping(value = "/signUp", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) 
-    		throws ParseException {
-    	
-        userValidator.validate(userForm, bindingResult);
 
-        if (bindingResult.hasErrors()) {
-            return "signUp";
+    @RequestMapping(
+            value = "/competition/save",
+            method = RequestMethod.POST)
+    public CompetitionDto postCompetition(@RequestBody CompetitionDto competitionDto ) throws NoSuchAlgorithmException {
+
+        User currentUser = userService.findByUsername(competitionDto.getUsernameCreator());
+
+        CompetitionMapperHandler competitionMapperHandler = new CompetitionMapperHandler();
+
+        if (competitionDto.getConfirmedPassword().equals(competitionDto.getPassword())) {
+            Competition competition = competitionMapperHandler.mapToEntity(competitionDto, new Competition());
+            competitionService.createCompetition(competition, currentUser);
+            return competitionDto;
+        } else {
+            return null;
         }
+    }
+
+    @RequestMapping(
+            value = "/match/save",
+            method = RequestMethod.POST)
+    public MatchDto postMatch(@RequestBody MatchDto matchDto){
+
+        MatchMapperHandler matchMapperHandler = new MatchMapperHandler();
+        Match match = matchMapperHandler.mapToEntity(matchDto, new Match());
+
+        matchService.saveOrUpdate(match, matchDto.getCompetition_ref());
+
+        return matchDto;
+
+    }
+
+    @RequestMapping(
+            value = "/competition/addUser",
+            method = RequestMethod.POST)
+    public CompetitionDto addUserToCompetition(@RequestParam(value = "competition_ref") String competition_ref,
+                                               @RequestParam(value = "username") String username,
+                                               @RequestParam(value = "password") String password) throws NoSuchAlgorithmException {
+
+        User currentUser = userService.findByUsername(username);
+        Competition competition = competitionService.addUserToCompetition(currentUser, competition_ref, password);
+
+        CompetitionMapperHandler competitionMapperHandler = new CompetitionMapperHandler();
+        CompetitionDto competitionDto = competitionMapperHandler.createDTOFromEntity(competition);
+        return competitionDto;
+
+    }
+
+    //------------------------------------------- GET
+    @RequestMapping(
+            value = "/match/get",
+            method = RequestMethod.GET)
+    public List<MatchDto> getMatchesWithCompetitionRef(@RequestParam(value = "competition_ref") String competition_ref){
+
+        List<Match> matches = matchService.findAllMatchesByCompetitionReference(competition_ref);
+
+        MatchMapperHandler matchMapperHandler = new MatchMapperHandler();
+        return matchMapperHandler.mapToListDtos(matches);
+
+    }
+
+
+    @RequestMapping(
+            value = "/ballot/get",
+            method = RequestMethod.GET)
+    public List<BallotDto> getBallotsWithMatchRef(@RequestParam(value = "match_ref") String match_ref){
+
+        List<Ballot> ballots = ballotService.findAllBallotsByMatchReference(match_ref);
+
+        BallotMapperHandler ballotMapperHandler = new BallotMapperHandler();
         
-		Date now = new Date();
-		Date submitDate = sdf.parse("2018/06/13 23:59:59");
-		long diffInMillies = submitDate.getTime() - now.getTime();
-		
-		if (diffInMillies <0) {
-			return "redirect:https://media.giphy.com/media/6f8I1Qfb2OKKQ/giphy.gif";
-		} else {
-        userService.save(userForm);
+        return ballotMapperHandler.mapToListDtos(ballots);
 
-        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
-
-        return "redirect:index.jsp";
-		}
     }
-    
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+    @RequestMapping(
+            value = "/vote/get",
+            method = RequestMethod.GET)
+    public List<VoteDto> getVotesWithBallotRef(@RequestParam(value = "ballot_ref") String ballot_ref){
 
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+        List<Vote> votes = voteService.findAllByBallotReference(ballot_ref);
+        VoteMapperHandler voteMapperHandler = new VoteMapperHandler();
+        
+        return voteMapperHandler.mapToListDtos(votes);
 
-        return "login";
     }
+
+    @RequestMapping(
+            value = "/competition/get",
+            method = RequestMethod.GET)
+    public List<CompetitionDto> getCompetitionLinkToUser(@RequestParam(value = "username") String username){
+
+        List<Competition> competitions = competitionService.findAllByUsername(username);
+        CompetitionMapperHandler competitionMapperHandler = new CompetitionMapperHandler();
+        
+        return competitionMapperHandler.mapToListDtos(competitions);
+
+    }
+
+
 
 
 }
